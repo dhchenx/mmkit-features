@@ -6,18 +6,18 @@ There are several modules used to implement different functions to cope with mul
 
 ## Features Extraction
 
-1. [Text Features Extraction](doc/text_features_extraction.md)
-2. [Speech Features Extraction](doc/speech_features_extraction.md)
-3. [Image Features Extractoin](doc/image_features_extration.md)
-4. [Video Features Extraction](doc/video_features_extraction.md)
+1. [Text Features Extraction](text_features_extraction.md)
+2. [Speech Features Extraction](speech_features_extraction.md)
+3. [Image Features Extractoin](image_features_extration.md)
+4. [Video Features Extraction](video_features_extraction.md)
 
 ## Multimodal Features Library (MMFLib)
 
-1. [Basic Computational Sequence](doc/simple_computational_seq_use.md)
-2. [Core use of MMFLib](doc/multimodal_features_library.md)
+1. [Basic Computational Sequence](simple_computational_seq_use.md)
+2. [Core use of MMFLib](multimodal_features_library.md)
 
 ## MMFLib Aplications
 
-1. [Multimodal Birds Features Library](doc/example_bird_library.md)
-2. [ICD-11 Disease Coding Library](doc/example_icd11_library.md)
+1. [Multimodal Birds Features Library](example_bird_library.md)
+2. [ICD-11 Disease Coding Library](example_icd11_library.md)
 
