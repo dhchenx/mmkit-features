@@ -45,13 +45,13 @@ class MMFeaturesNode(dict):
     def get_all_validated_keys(self):
         return ["content_id",'name','text','modality','feature_ids','feature_dim_names',
                 'features','feature_extractor','intervals','space','labels','label_names',
-                'origin','attributes','links',"format","raw","locations"
+                'origin','attributes','links',"format","raw","locations","objects"
                 ]
 
     def get_all_validated_keys_alias(self):
         return ["ID", 'NA', 'TX', 'MD', 'FID', 'FDM',
                 'F', 'FET', 'ITV', 'SP', 'LB', 'LBN',
-                'OG', 'AT', 'LK', "FM","RAW","LOC"
+                'OG', 'AT', 'LK', "FM","RAW","LOC","OBJ"
                 ]
 
     def set_item(self,k,v):

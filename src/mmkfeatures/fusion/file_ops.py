@@ -2,6 +2,7 @@ import sys
 import h5py
 import os
 import json
+import numpy as np
 from tqdm import tqdm
 from mmkfeatures.fusion  import log
 from mmkfeatures.fusion .metadataconfigs import *
@@ -62,17 +63,44 @@ def write_CSD(data, rel_data,dicts, metadata, rootName, destination, compression
             '''
             for k in keys:
                 if k in data[vid].keys():
-                    if k in ["features","intervals"] or k in ['F','ITV']:
+                    if k in ["raw","objects"] or k in ['RAW',"OBJ"]:
+                        rawHandeler = vidHandle.create_group(k)
+                        for idx, raw in enumerate(data[vid][k]):
+                            rawHandeler.create_dataset(str(idx), data=raw,
+                                                     compression=compression,
+                                                     compression_opts=compression_opts
+                                                     )
+                    elif k in ["features","intervals"] or k in ['F','ITV']:
+                        #dt = h5py.vlen_dtype(np.dtype('float64'))
+                        #new_data=np.array(data[vid][k])
+
                         vidHandle.create_dataset(k, data=data[vid][k],
                                                   compression=compression,
                                           compression_opts=compression_opts
                                                  )
+
+                        '''
+                        if k=="features" or k=="F":
+                            fHandeler = vidHandle.create_group(k)
+                            for idx, feature in enumerate(data[vid][k]):
+                                fHandeler.create_dataset(str(idx), data=feature,
+                                                         compression=compression,
+                                                         compression_opts=compression_opts
+                                                         )
+                        
+                        else:
+                            vidHandle.create_dataset(k, data=data[vid][k],
+                                                     compression=compression,
+                                                     compression_opts=compression_opts
+                                                    )
+                        '''
                     else:
                         # print(k)
                         # print(data[vid][k])
                         if type(data[vid][k])==list:
                             #for x in data[vid][k]:
                             # data=numpy.array(data[vid][k],dtype='S4')
+                            # print("list = ",k)
                             vidHandle.create_dataset(k, data=str(data[vid][k]))
                         elif type(data[vid][k])==dict:
                             vidHandle.create_dataset(k,data=str(data[vid][k]))

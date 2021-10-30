@@ -32,11 +32,14 @@ src/mmkfeatures/image/__init__.py
 src/mmkfeatures/image/bow_extractor.py
 src/mmkfeatures/image/clutering_model.py
 src/mmkfeatures/image/color_descriptor.py
+src/mmkfeatures/image/conv_autoencoder.py
 src/mmkfeatures/image/deep_extractor.py
 src/mmkfeatures/image/extractor.py
+src/mmkfeatures/image/image_autoencocer_builder.py
 src/mmkfeatures/image/image_features_wrapper.py
 src/mmkfeatures/image/image_model.py
 src/mmkfeatures/image/image_processing.py
+src/mmkfeatures/image/image_searcher.py
 src/mmkfeatures/image/lbp_extractor.py
 src/mmkfeatures/models/__init__.py
 src/mmkfeatures/models/image_text_fusion/__init__.py

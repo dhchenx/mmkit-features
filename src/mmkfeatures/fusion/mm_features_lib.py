@@ -6,6 +6,7 @@ import nexusformat.nexus as nx
 import ast
 from tqdm import tqdm
 import pickle
+import cv2
 
 class MMFeaturesLib:
     def __init__(self,root_name="",dataset_name="",file_path="",description="",version="1.0",creator="mmkit-features",contact="",enable_key_compressed=False):
@@ -324,4 +325,43 @@ class MMFeaturesLib:
             return pos_index.positional_indexing_search_2words(index_file_path,ws[0],ws[1])
         return None
 
+    def to_obj_index(self,index_file,obj_field="objects",index_type="color_descriptor"):
+        print("Creating index....")
+        if index_type=="color_descriptor":
+            from mmkfeatures.image.color_descriptor import ColorDescriptor
+            cd = ColorDescriptor((8, 12, 3))
+            data = self.get_data()
+            f_out = open(index_file, "w")
+            for cid in tqdm(data.keys()):
+                item = data[cid]
+                imgs = item[obj_field]
+                for img_id in imgs:
+                    # print(image)
+                    img = imgs[img_id][()]
+                    # print(img)
+                    # print(type(img))
+                    features = cd.describe(img)
+                    features = [str(f) for f in features]
+                    # print(feature)
+                    feature_str = cid + "," + ",".join(features)
+                    f_out.write(feature_str + "\n")
+            f_out.close()
+        elif index_type=="autoencoder":
+            pass
+
+    def search_obj_index(self,index_file,features):
+        from mmkfeatures.image.color_descriptor import ColorDescriptor
+        from mmkfeatures.image.image_searcher import Searcher
+        # initialize the image descriptor
+        print("Searching index....")
+        # perform the search
+        searcher = Searcher(index_file)
+        results = searcher.search(features)
+        # display the query
+        # cv2.imshow("Query", query)
+        # cv2.waitKey(0)
+        return results
+
+    def get_content_by_id(self,cid):
+        return self.get_data()[cid]
 
