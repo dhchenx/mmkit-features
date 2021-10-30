@@ -8,7 +8,7 @@ There are several modules used to implement different functions to cope with mul
 
 1. [Text Features Extraction](text_features_extraction.md)
 2. [Speech Features Extraction](speech_features_extraction.md)
-3. [Image Features Extractoin](image_features_extration.md)
+3. [Image Features Extractoin](image_features_extraction.md)
 4. [Video Features Extraction](video_features_extraction.md)
 
 ## Multimodal Features Library (MMFLib)
