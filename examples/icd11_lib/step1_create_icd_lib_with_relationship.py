@@ -1,10 +1,13 @@
 import os
 import sys
+import time
 import csv
 from tqdm import tqdm
 import numpy as np
 from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
 from mmkfeatures.fusion.mm_features_node import MMFeaturesNode
+
+start_time=time.time()
 
 root_path=r"D:\GitHub\ICD11-CAC\ICD-11-graph-databases\english_full"
 
@@ -190,9 +193,11 @@ icd11_lib.set_rel_data(rels_dict)
 print("writing data...")
 # 6. you can save the features to disk
 icd11_lib.save_data(f"icd11_mmf/icd11_rel.mmf")
+end_time=time.time()
+print("time cost: ",end_time-start_time)
 # 7. you can check structure of csd file which happens to be the format of h5dy
 # icd11_lib.show_structure(f"medmnist_mmf/{flag}.mmf")
 # 8. have a glance of features content within the dataset
-print("showing some sample data from the file...")
-icd11_lib.show_sample_data(f"icd11_mmf/icd11_rel.mmf")
+# print("showing some sample data from the file...")
+# icd11_lib.show_sample_data(f"icd11_mmf/icd11_rel.mmf")
 

@@ -41,7 +41,7 @@ setup(
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A Python library to extract and fuse multimodal features for deep learning',  # Optional
+    description='A Python library to extract, store and fuse multimodal features for deep learning',  # Optional
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -79,6 +79,8 @@ setup(
     # above.
     author_email='douglaschan@126.com',  # Optional
 
+    license="MIT",
+
     # Classifiers help users find your project by categorizing it.
     #
     # For a list of valid classifiers, see https://pypi.org/classifiers/
@@ -113,7 +115,7 @@ setup(
     # Note that this is a list of additional keywords, separated
     # by commas, to be used to assist searching for the distribution in a
     # larger catalog.
-    keywords='speech,feature extraction, machine learning',  # Optional
+    keywords='multimodal features, multimodal data, knowledge base',  # Optional
 
     # When your source code is in a subdirectory under the project root, e.g.
     # `src/`, it is necessary to specify the `package_dir` argument.
@@ -145,7 +147,6 @@ setup(
     install_requires=[
         'numpy',
         'validators',
-        'uuid',
         'tqdm',
         'requests',
         'h5py',
@@ -154,7 +155,6 @@ setup(
         'opencv-python',
         'librosa',
         'sklearn',
-        'pickle',
         'spacy',
         'torch',
         'torchvision',
@@ -213,7 +213,6 @@ setup(
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/dhchenx/mmkit-features/issues',
-        'Say Thanks!': 'https://github.com/dhchenx/mmkit-features',
         'Source': 'https://github.com/dhchenx/mmkit-features',
     },
 )

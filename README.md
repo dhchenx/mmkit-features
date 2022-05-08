@@ -3,7 +3,7 @@
 A light-weight Python library to extract, fuse and store multimodal features for deep learning.
 
 ## Objectives
-1. To extract and fuse various features from multimodal datasets in a rapid and easy manner;
+1. To extract, store and fuse various features from multimodal datasets in a rapid and easy manner;
 2. To provide a common foundation framework for storage and retrieving of multimodal data. 
 
 ## Modalities
@@ -15,7 +15,7 @@ The modalities to support include:
 5. Cross-modality between above
 
 ## Usage
-A toy example showing how to build a multimodal features library is here:
+A toy example showing how to build a multimodal feature (MMF) library is here:
 
 ```python
 from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
@@ -47,7 +47,7 @@ if __name__ == "__main__":
 ```
 
 ## Credits
-The project's source codes come from various open-source projects, we will include a list of their contribution and our improvement.
+The project's source codes come from various open-source projects, we will include a list of their contributions and our improvement.
 
 1. [A2Zadeh/CMU-MultimodalSDK](https://github.com/A2Zadeh/CMU-MultimodalSDK)
 2. [aishoot/Speech_Feature_Extraction](https://github.com/aishoot/Speech_Feature_Extraction)

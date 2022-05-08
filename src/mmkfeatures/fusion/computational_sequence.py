@@ -83,7 +83,7 @@ class computational_sequence():
 
         print("self.mainfile=",self.main_file)
 
-        h5handle, data, metadata = read_CSD(self.main_file)
+        h5handle, data,_,_, metadata = read_CSD(self.main_file)
         if type(metadata) is not dict:
             log.error("Metadata not in correct format for %s. Exiting ...!" % destination, error=True)
 
@@ -170,7 +170,7 @@ class computational_sequence():
         self.metadata['md5'] = None
         log.status("Your unique identifier for <%s> computational sequence is %s" % (
         self.metadata["root name"], self.metadata['uuid']))
-        write_CSD(self.data, self.metadata, self.metadata["root name"], destination, compression=compression,
+        write_CSD(self.data,{}, {}, self.metadata, self.metadata["root name"], destination, compression=compression,
                   compression_opts=compression_opts, full_chunk_shape=full_chunk_shape)
         self.main_file = destination
 

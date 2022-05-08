@@ -1,10 +1,7 @@
 from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
 from mmkfeatures.image.color_descriptor import ColorDescriptor
-import numpy as  np
 import cv2
-import pickle
-from tqdm import tqdm
-from mmkfeatures.image.image_searcher import Searcher
+import time
 
 # load an existing multimodal feature lib
 mmf_file=f"datasets/birds_raw.mmf"
@@ -19,18 +16,22 @@ index_path="datasets/image.index"
 feature_lib.to_obj_index(index_file=index_path,obj_field="objects",index_type="color_descriptor")
 
 # query index by color_descriptor
+start_time=time.time()
 cd = ColorDescriptor((8, 12, 3))
 query_image = cv2.imread(test_img_path)
 query_features = cd.describe(query_image)
 search_results=feature_lib.search_obj_index(index_file=index_path,features=query_features)
+end_time=time.time()
+
+print("simplified time cost: ",end_time-start_time)
 
 # loop over the results
 for (score, resultID) in search_results:
     print(resultID,score)
     content=feature_lib.get_content_by_id(resultID)
-    print(content)
+    # print(content)
     image=content["objects"]["0"][()]
     title=content["labels"][()][0]
-    cv2.imshow(title, image)
+    cv2.imshow(str(title), image)
     cv2.waitKey(0)
 

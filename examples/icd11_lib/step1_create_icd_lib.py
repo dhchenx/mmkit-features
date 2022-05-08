@@ -1,11 +1,13 @@
 import os
 import sys
 import csv
+import time
+
 from tqdm import tqdm
 import numpy as np
 from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
 from mmkfeatures.fusion.mm_features_node import MMFeaturesNode
-
+start_time=time.time()
 root_path=r"D:\GitHub\ICD11-CAC\ICD-11-graph-databases\english_full"
 
 graph_nodes_file=root_path+"/graph_nodes_import.txt"
@@ -18,7 +20,7 @@ fields=":ID,code,name,:LABEL,f_uri,l_uri,classkind,depthinkind:int," \
 icd11_lib=MMFeaturesLib(root_name="ICD-11",dataset_name=f"ICD-11-Features",
                         description="This is a test ICD-11 knowledge base!")
 # compress the unnecessary fields
-icd11_lib.set_compressed(True)
+# icd11_lib.set_compressed(True)
 # read all ICD code data
 features_dict={}
 with open(graph_nodes_file, mode='r',encoding='utf-8-sig') as csv_file:
@@ -69,5 +71,8 @@ icd11_lib.save_data(f"icd11_mmf/icd11.mmf")
 # 7. you can check structure of csd file which happens to be the format of h5dy
 # icd11_lib.show_structure(f"medmnist_mmf/{flag}.mmf")
 # 8. have a glance of features content within the dataset
-icd11_lib.show_sample_data(f"icd11_mmf/icd11.mmf")
+# icd11_lib.show_sample_data(f"icd11_mmf/icd11.mmf")
+
+end_time=time.time()
+print("time cost: ",end_time-start_time)
 

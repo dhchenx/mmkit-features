@@ -2,7 +2,7 @@ from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
 
 flag="icd11"
 
-mmf_file=f"icd11_mmf/{flag}_rel.mmf"
+mmf_file=f"icd11_mmf/{flag}.mmf"
 
 feature_lib=MMFeaturesLib(file_path=mmf_file)
 

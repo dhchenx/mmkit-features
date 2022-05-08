@@ -3,10 +3,11 @@ from mmkfeatures.fusion.computational_sequence_x import computational_sequence_x
 from mmkfeatures.fusion.mm_features_node import MMFeaturesNode
 import h5py
 import nexusformat.nexus as nx
-import ast
+# import ast
 from tqdm import tqdm
 import pickle
 import cv2
+from quickcsv import *
 
 class MMFeaturesLib:
     def __init__(self,root_name="",dataset_name="",file_path="",description="",version="1.0",creator="mmkit-features",contact="",enable_key_compressed=False):
@@ -168,11 +169,11 @@ class MMFeaturesLib:
                         # print("type of labels",type(labels.value))
                         # print("type of label list", type(labels_list))
                         # print(part[kk].value)
-                        for item in ast.literal_eval(part[kk][()]):
+                        for item in eval(part[kk][()]):
                             print("\t\t--> ", item)
                     if kk in ['AT']:
-                        for k in ast.literal_eval(part[kk][()]).keys():
-                            print("\t\t-->  ", k, " = ", ast.literal_eval(part[kk][()])[k])
+                        for k in eval(part[kk][()]).keys():
+                            print("\t\t-->  ", k, " = ", eval(part[kk][()])[k])
         print()
         print("Printing...relationship table")
         rel_ids = list(group["rel_data"])
@@ -232,11 +233,13 @@ class MMFeaturesLib:
                         # print("type of labels",type(labels.value))
                         # print("type of label list", type(labels_list))
                         # print(part[kk].value)
-                        for item in ast.literal_eval(part[kk][()]):
+                        for item in eval(part[kk][()]):
                             print("\t\t--> ", item)
                     if kk in ['attributes']:
-                        for k in ast.literal_eval(part[kk][()]).keys():
-                            print("\t\t-->  ", k, " = ", ast.literal_eval(part[kk][()])[k])
+                        print(part[kk][()])
+                        for k in eval(part[kk][()]).keys():
+                            print("k = ",k)
+                            print("\t\t-->  ", k, " = ", eval(part[kk][()])[k])
         print()
         print("Printing...relationship table")
         rel_ids = list(group["rel_data"])
@@ -254,7 +257,7 @@ class MMFeaturesLib:
         with h5py.File(file_name, "r") as f:
             group = f[self.root_name]
             if 'compressed' in list(group["metadata"]):
-                compressed=ast.literal_eval(str(group["metadata"]["compressed"][0]))
+                compressed=eval(str(group["metadata"]["compressed"][0]))
             else:
                 compressed="false"
             # str(metadata_[key][0])
@@ -278,6 +281,7 @@ class MMFeaturesLib:
                     v = content[field][()]
                 else:
                     v=""
+                # print(key,v)
                 list_id_value.append([key, v])
             pickle.dump(list_id_value, open(index_file_path, 'wb'))
         if index_type=="inverted_index":
@@ -310,7 +314,7 @@ class MMFeaturesLib:
         if search_type=="brutal_force":
             list_id_text = pickle.load(open(index_file_path, 'rb'))
             for item in list_id_text:
-                text = item[1]
+                text = str(item[1])
                 if query in text:
                     list_ids.append(item[0])
             return list_ids
@@ -348,6 +352,23 @@ class MMFeaturesLib:
             f_out.close()
         elif index_type=="autoencoder":
             pass
+
+    def export_key_values(self,field,save_path=""):
+        data=self.get_data()
+        list_item=[]
+        for key in tqdm(data.keys()):
+            content = data[key]
+            if field in content.keys():
+                v = content[field][()]
+            else:
+                v = ""
+            if type(v)!=str:
+                v=v.decode("utf-8",errors="ignore")
+            list_item.append({"key":key,"value":v})
+        if save_path!="":
+            write_csv(save_path=save_path,list_rows=list_item)
+        return list_item
+
 
     def search_obj_index(self,index_file,features):
         from mmkfeatures.image.color_descriptor import ColorDescriptor

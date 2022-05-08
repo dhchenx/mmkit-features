@@ -50,7 +50,7 @@ def write_CSD(data, rel_data,dicts, metadata, rootName, destination, compression
         from mmkfeatures.fusion.mm_features_node import MMFeaturesNode
         import numpy
         temp=MMFeaturesNode("")
-        if metadata["compressed"].lower()=="true":
+        if "compressed" in metadata.keys() and metadata["compressed"].lower()=="true":
             keys=temp.get_all_validated_keys_alias()
         else:
             keys=temp.get_all_validated_keys()

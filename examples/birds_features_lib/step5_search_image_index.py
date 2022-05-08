@@ -27,15 +27,15 @@ features = cd.describe(query)
 searcher = Searcher(index_path)
 results = searcher.search(features)
 # display the query
-# cv2.imshow("Query", query)
-# cv2.waitKey(0)
+cv2.imshow("Query", query)
+cv2.waitKey(0)
 
 # loop over the results
 for (score, resultID) in results:
     print(resultID,score)
     image=data[str(resultID)]["objects"]["0"][()]
     title=data[str(resultID)]["labels"][()][0]
-    cv2.imshow(title, image)
+    cv2.imshow(str(title), image)
     cv2.waitKey(0)
     # load the result image and display it
     # result = cv2.imread("datasets/CUB_200_2011/" + resultID)

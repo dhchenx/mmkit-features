@@ -57,10 +57,12 @@ class InvertedIndex:
         word_list = []
         wcurrent = []
         windex = None
+        if type(text)!=str:
+            text=text.decode(encoding='UTF-8',errors='ignore')
 
         for i, c in enumerate(text):
-            if c.isalnum():
-                wcurrent.append(c)
+            if str(c).isalnum():
+                wcurrent.append(str(c))
                 windex = i
             elif wcurrent:
                 word = u''.join(wcurrent)
@@ -70,7 +72,7 @@ class InvertedIndex:
         if wcurrent:
             word = u''.join(wcurrent)
             word_list.append((windex - len(word) + 1, word))
-
+        # print(word_list)
         return word_list
 
     def words_cleanup(self,words):
@@ -113,6 +115,7 @@ class InvertedIndex:
         inverted = {}
 
         for index, word in self.word_index(text):
+            # print(index,word)
             locations = inverted.setdefault(word, [])
             locations.append(index)
 
@@ -161,8 +164,11 @@ class InvertedIndex:
             documents[item[0]] = item[1]
 
         for doc_id, text in documents.items():
+            # print("docId="+str(doc_id),text)
             doc_index = self.inverted_index(text)
+            # print(doc_index)
             self.inverted_index_add(inverted, doc_id, doc_index)
+            # print()
 
         pickle.dump(inverted,open(inverted_index_file,"wb"))
 

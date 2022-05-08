@@ -10,9 +10,10 @@ import warnings
 warnings.filterwarnings('ignore')
 import tensorflow as tf
 tf.get_logger().setLevel('INFO')
-
+import time
+start_time=time.time()
 img_utils=ImageUtils()
-root_path=r"examples\medmnist_data"
+root_path=r"D:\UIBE科研\国自科青年\多模态机器学习\projects\MedMNIST-main\examples\medmnist_data"
 
 '''
 img_feat_wrapper = ImageFeaturesWrapper()
@@ -140,3 +141,7 @@ feature_lib.save_data(f"medmnist_mmf/{flag}.mmf")
 # feature_lib.show_structure(f"medmnist_mmf/{flag}.mmf")
 # 8. have a glance of features content within the dataset
 # feature_lib.show_sample_data(f"medmnist_mmf/{flag}.mmf")
+
+end_time=time.time()
+time_cost=end_time-start_time
+print("time cost: ",time_cost)

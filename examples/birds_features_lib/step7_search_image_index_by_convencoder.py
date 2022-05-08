@@ -1,5 +1,5 @@
 import random
-
+import time
 from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
 from mmkfeatures.image.image_autoencocer_builder import ImageAutoEncoderBuilder
 from tqdm import tqdm
@@ -10,7 +10,7 @@ import cv2
 mmf_file=f"datasets/birds_raw.mmf"
 feature_lib=MMFeaturesLib(file_path=mmf_file)
 data=feature_lib.get_data()
-
+start_time=time.time()
 # build the autoencoder for given images
 img_autoencoder_builder=ImageAutoEncoderBuilder(img_size=(64,64),channel=3,epochs=20,split=0.8)
 
@@ -19,6 +19,10 @@ trainX,testX,_,_=img_autoencoder_builder.create_train_test_ids(data,is_shuffle=T
 
 # train the model
 img_autoencoder_builder.train(trainX,testX, output_model_path="autoencoder/output/autoencoder.h5")
+
+end_time=time.time()
+
+print("time cost of building autoencoder: ",end_time-start_time)
 
 # evaluate
 # img_autoencoder_builder.predict(testX=testX, _vis="autoencoder/output/recon_vis.png",_plot="autoencoder/output/plot.png")

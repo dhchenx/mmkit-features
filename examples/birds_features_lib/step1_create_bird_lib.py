@@ -1,6 +1,3 @@
-import os
-import sys
-import csv
 from tqdm import tqdm
 import cv2
 import numpy as np
