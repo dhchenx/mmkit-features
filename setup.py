@@ -21,7 +21,7 @@ setup(
     # package, this name will be registered for you. It will determine how
     # users can install this project, e.g.:
     #
-    # $ pip install sampleproject
+    # $ pip install mmkit-features
     #
     # And where it will live on PyPI: https://pypi.org/project/sampleproject/
     #
@@ -151,14 +151,15 @@ setup(
         'requests',
         'h5py',
         'nexusformat',
-        'torch',
+        'torch >= 1.9.1',
         'opencv-python',
-        'librosa',
+        'librosa >= 0.9.1',
         'sklearn',
-        'spacy',
-        'torch',
+        'spacy >= 3.2.3',
         'torchvision',
-        'ffmpeg-python'
+        'ffmpeg-python',
+        'tensorflow >= 2.8',
+        'opencv-python'
     ],  # Optional
 
     # List additional groups of dependencies here (e.g. development

@@ -1,0 +1,5 @@
+
+src/mmkfeatures/video/models/vggish/hub/checkpoints/r2plus1d_18-91a641e6.pth
+src/mmkfeatures/video/models/vggish/hub/checkpoints/resnet18-f37072fd.pth
+src/mmkfeatures/video/models/vggish/hub/checkpoints/vggish-10086976.pth
+src/mmkfeatures/video/models/vggish/checkpoints/vggish_pca_params.npz
