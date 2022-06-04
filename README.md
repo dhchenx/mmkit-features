@@ -9,7 +9,7 @@ A light-weight Python library to extract, fuse and store multimodal features for
 
 ## Framework
 
-![Design science canvas](https://github.com/dhchenx/mmkit-features/blob/main/doc/images/design-science-canvas.jpg)
+![Design science canvas](https://dhchenx.github.io/projects/mmk-features/images/design-science-canvas.jpg)
 
 ## Modalities
 1. Text/Language modality
@@ -62,7 +62,7 @@ The project includes some source codes from various open-source contributors. He
 5. [v-iashin/Video Features](https://v-iashin.github.io/video_features/)
 
 ## License
-Please consider cite our project if the project is used in your research. 
+Please cite our project if the project is used in your research. 
 
 Chen, D. (2022). MMKit-Features: Multimodal Features Extraction Toolkit (Version 0.0.1) [Computer software]
 
