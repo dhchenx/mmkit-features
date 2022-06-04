@@ -3,11 +3,11 @@
 A light-weight Python library to extract, fuse and store multimodal features for deep learning.
 
 ## Objectives
-1. To extract, store and fuse various features from multimodal datasets in a rapid and easy manner;
-2. To provide a common foundation framework for storage and retrieving of multimodal data. 
+- To extract, store and fuse various features from multimodal datasets rapidly and efficiently;
+- To provide a common multimodal information processing framework for multimodal features; 
+- To achieve generative adversarial network (GAN)-based multimodal knowledge representation dynamically. 
 
 ## Modalities
-The modalities to support include:
 1. Text/Language modality
 2. Image modality
 3. Video modality
@@ -22,13 +22,13 @@ from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib
 from mmkfeatures.fusion.mm_features_node import MMFeaturesNode
 import numpy as np
 if __name__ == "__main__":
-    # 1. create an empty multimodal features library with root_name and dataset_names
+    # 1. create an empty multimodal features library with root and dataset names
     feature_lib=MMFeaturesLib(root_name="test features",dataset_name="test_features")
-    # 2. set names for each dimension name for convenience
+    # 2. set short names for each dimension for convenience
     feature_lib.set_features_name(["feature1","feature2","feature3"])
-    # 3. set a  list of content ids
+    # 3. set a  list of content IDs
     content_ids=["content1","content2","content3"]
-    # 4. according to ids, assign a group of features with interval to corresponding content id
+    # 4. according to IDs, assign a group of features with interval to corresponding content ID
     features_dict={}
     for id in content_ids:
         mmf_node=MMFeaturesNode(id)
@@ -46,18 +46,22 @@ if __name__ == "__main__":
     feature_lib.show_sample_data("test6_feature.csd")
 ```
 
+Further instructions on the toolkit refers to [here](https://github.com/dhchenx/mmkit-features/tree/main/doc). 
+
 ## Credits
-The project's source codes come from various open-source projects, we will include a list of their contributions and our improvement.
+The project includes some source codes from various open-source contributors. Here is a list of their contributions. 
 
 1. [A2Zadeh/CMU-MultimodalSDK](https://github.com/A2Zadeh/CMU-MultimodalSDK)
 2. [aishoot/Speech_Feature_Extraction](https://github.com/aishoot/Speech_Feature_Extraction)
 3. [antoine77340/video_feature_extractor](https://github.com/antoine77340/video_feature_extractor)
 4. [jgoodman8/py-image-features-extractor](https://github.com/jgoodman8/py-image-features-extractor)
+5. [v-iashin/Video Features](https://v-iashin.github.io/video_features/)
 
 ## License
-Please consider cite our research paper if our project is used in your research. 
+Please consider cite our project if the project is used in your research. 
 
 ## To do
-1. GAN-based feature extraction and generation
+
 2. Multimodal knowledge base framework
+3. Graphic User Interface for the framework
 ...

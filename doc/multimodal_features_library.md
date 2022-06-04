@@ -1,8 +1,8 @@
 ## Multimodal Features Library
 
-This section presents technical details of the multimodal features library provided by our ```mmkit-features``` toolkit. All features extraction and basic modules are used to support this module, which is our focus in the project. 
+This section presents technical details of the multimodal features library provided by our ```mmkit-features``` toolkit. All features extraction and basic modules are used to support this module, which is our goal in the project. 
 
-We aim to develop a commmon framework of multimodal features library to extract, represent, store, fuse, retrive multimodal features in a rapid and efficient way. With the use of the `MMFeaturesLib` object in the toolkit, we are easy to create a multimodal features library.
+We aim to develop a common framework of multimodal feature library to extract, represent, store, fuse, retrieve multimodal features in a rapid and efficient way. With the use of the `MMFeaturesLib` object in the toolkit, we are easy to create a multimodal feature library.
 
 ### A toy example of multimodal features library
 
@@ -17,7 +17,7 @@ A summary of the steps are below:
 5. Set the library's data;
 6. Save the features to disk for future use;
 7. Check structure of lib file with the format of h5py;
-8. Have a glance of features content within the dataset. 
+8. Have a glance of feature contents within the dataset. 
 
 A complete Python example is here:
 
@@ -54,11 +54,11 @@ As you can see, the example used two key objects, namely, MMFFeaturesLib and MMF
 
 ### Structure of multimodal features library
 
-The multimodal features library (`MMFeaturesLib`) contains serveral types of content, namely, `metadata`, `data`, `rel_data`, `dicts`, and other basic library information. 
+The multimodal feature library (`MMFeaturesLib`) contains several types of content, namely, `metadata`, `data`, `rel_data`, `dicts`, and other basic library information. 
 
 #### Basic information
 
-A new library is created by specifying two basic parameters, namely, `root_name`, and `dataset_name`. the `root_name` is used inside h5py file content of the library and theh `dataset_name` is used to represent a common and readable name for the library for specific applications. 
+We create a new library by specifying two basic parameters, namely, `root_name`, and `dataset_name`. the `root_name` is used inside h5py file content of the library and the `dataset_name` is used to represent a common and readable name for the library for specific applications. 
 
 #### Meta data
 
@@ -82,7 +82,7 @@ self.meta_dict = {
             }
 ```
 
-The `metadata` object is deprived from the original `computational_sequence` object from the CMU-Multimodal-SDK but we extend the object by adding more metadata to support complciated operations of the library, such as `attributes` and `attributes-alias`. 
+The `metadata` object is deprived of the original `computational_sequence` object from the CMU-Multimodal-SDK but we extend the object by adding more metadata to support complicated operations of the library, such as `attributes` and `attributes-alias`. 
 
 #### Multimodal Node List
 
@@ -170,7 +170,7 @@ meta_fields = {
 
 Since there are multimodal nodes in the library, we introduce the concept of multimodal relationships into the libarry. The object structure to represent relataionships between multimodal nodes is actual type of Python dictionary. 
 
-Here is an exmaple of defining relationships between multimodal nodes: 
+Here is an example of defining relationships between multimodal nodes: 
 
 ```python
         start_id=row[":START_ID"]
@@ -201,7 +201,7 @@ The `rel` object in the example contains attributes like `start`, `end`, `type`,
 
 `attributes` is used to store other user-related information related to the relationships between nodes. 
 
-After we construct a `rel_data` dictionary, we can save the relationships data to library by:
+After we construct a `rel_data` dictionary, we can save the relationship data to library by:
 
 ```python
 # 5.1 set relationships data
@@ -212,7 +212,7 @@ icd11_lib.set_rel_data(rels_dict)
 
 The multimodal dictionary is used as a dictionary to store some mapping values. For example, for labelled data, if you do not want to repeatedly use label name to represent their features' label, you can define a label-index dictionary and then use label index in the features. This will save storing spaces. 
 
-Here is a example of defining a multimodal dicionary here:
+Here is a example of defining a multimodal dictionary here:
 
 ```python
 # create a multimodal features library
@@ -237,7 +237,7 @@ birds_lib.set_dicts(bird_dicts)
 
 ### Functions
 
-The multimodal features libarry contains powerful functions to support multimodal features use. Here are some implemented functions. 
+The multimodal features library contains powerful functions to support multimodal features use. Here are some implemented functions. 
 
 #### Aligning multimodal features
 
@@ -303,7 +303,7 @@ if __name__ == "__main__":
 
 #### Indexing and Searching
 
-The library is also used to index and search key fields from the multimodal data. The index content be multimodal content, like text-based and image-like features. 
+We also can use the library to index and search key fields from the multimodal data. The index content be multimodal content, like text-based and image-like features. 
 
 1. Create a text index with different types of indexing techniques:
 
@@ -350,11 +350,11 @@ search_results=feature_lib.search_obj_index(index_file=index_path,features=query
 
 The `index_type` in image_index search has values of `color_descriptor` or `autoencoder`. 
 
-#### Showing structures and sample data of the libarry
+#### Showing structures and sample data of the library
 
-The library also allows us to understand the structure of the database before use and get a small number of sample data from the database so as to help us understand better in its multimodal content. 
+The library also allows us to understand the structure of the database before use and get a small number of sample data from the database to help us understand better in its multimodal contents. 
 
-1. First, load the multimodal features library:
+1. First, load the multimodal feature library:
 
 ```python
 from mmkfeatures.fusion.mm_features_lib import MMFeaturesLib

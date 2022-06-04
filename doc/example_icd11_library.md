@@ -1,14 +1,14 @@
 ## Establishing ICD-11 disease coding library
 
-The example demonstrates steps to create a multimodal features library using the datasets from International Classification of Diseases, Eleventh Revision (ICD-11). The ICD-11 datasets contains massive text description of disease entities and their complicated relationships. It is also sutable for use to show the use of the `mmkit-features` toolkit. 
+The example demonstrates steps to create a multimodal feature library using the datasets from International Classification of Diseases, Eleventh Revision (ICD-11). The ICD-11 datasets contains massive text description of disease entities and their complicated relationships. It is also sutable for use to show the use of the `mmkit-features` toolkit. 
 
 ### Steps 
 
 1. Prepare the ICD-11 datasets
 
-The datasets contains ICD-11 entity information and their relationships. 
+The datasets contain ICD-11 entity information and their relationships. 
 
-2. Setup a MMF library
+2. Set up a MMF library
 
 3. Read ICD-11 entity files
 
@@ -20,7 +20,7 @@ The datasets contains ICD-11 entity information and their relationships.
 
 7. Read ICD-11's post-coordination relationships file
 
-8. Set the data inside the libarry and save the MMF library. 
+8. Set the data inside the library and save the MMF library. 
 
 ### Code example
 

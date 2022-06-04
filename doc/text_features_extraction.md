@@ -2,7 +2,7 @@
 
 Extracting text features is quite important in natural language processing. Therefore, the ```mmkit-features``` toolkit allows us to easily obtain text features in different format using `TextFeaturesWrapper` class. Several text feature extracting techniques are implemented in the module, including using `TF-IDF`, `WordEmbedding`, `WordVector` and `GloVe`. 
 
-Here are a few toy examles to show its usage. 
+Here are a few toy examples to show its usage. 
 
 ```python
 from mmkfeatures.text.text_features_wrapper import  TextFeaturesWrapper

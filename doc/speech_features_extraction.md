@@ -1,6 +1,6 @@
 ## Audio Features Extraction
 
-This module aims to provide a framework to generate audio features from an audio file like `wav` file so the audio features can be used in the future. 
+This module aims to provide a framework to generate audio features from an audio file like the `wav` file, so the audio features can be used in the future. 
 
 The audio file has several characteristics such as volume, ZeroCR, and MFCC. 
 

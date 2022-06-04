@@ -2,7 +2,7 @@
 
 The module aims to provide commonly used methods to obtain image features for convenience of use. The implmented methods in this toolki are far from comprehensive; therefore, users can implement their image feature extracting methods for specific purposes. 
 
-The types of image features include deep learning-based features, LBP features and BOW features using ImageNet. 
+The types of image feature include deep learning-based features, LBP features and BOW features using ImageNet. 
 
 ### 1. Deep learning-based features extraction 
 

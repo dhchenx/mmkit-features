@@ -18,4 +18,4 @@ if __name__ == "__main__":
 
 ```
 
-The generated features are stored as numpy object to a npy file. The method will divided the video into n chunks and aggregated features from each chunk of video clips so the final generated features are actually represented as a list of features of each chunk. 
+The generated features are stored as numpy object to a npy file. The method will divided the video into n chunks and aggregated features from each chunk of video clips, so the final generated features are actually represented as a list of features of each chunk. 

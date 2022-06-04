@@ -1,12 +1,12 @@
 ## A tutorial to create a multimodal features library using CUB_200_2011 datasets. 
 
-Here we give a step-by-step example to demonstrate the steps to build a multimodal features library using the CUB_200_2011 datasets. The CUB_200_2011 dataset contains text and image-based content to illustrate the classification of birds all over the world. The number of bird categories is 200. The database contains rich multimodal information about birds. 
+Here we give a step-by-step example to demonstrate the steps to build a multimodal feature library using the CUB_200_2011 datasets. The CUB_200_2011 dataset contains text and image-based content to illustrate the classification of birds all over the world. The number of bird categories is 200. The database contains rich multimodal information about birds. 
 
 ### Steps
 
-1. Download your CUB_200_2011 datasets and store them into one signle folder. 
+1. Download your CUB_200_2011 datasets and store them into one single folder. 
 
-The dataset folder should containsn text descriptions and images of birds. 
+The dataset folder should contains text descriptions and images of birds. 
 
 2. Set up a new empty multimodal features library by setting the root_name and dataset_name during init(). 
 
