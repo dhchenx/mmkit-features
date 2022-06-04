@@ -7,6 +7,10 @@ A light-weight Python library to extract, fuse and store multimodal features for
 - To provide a common multimodal information processing framework for multimodal features; 
 - To achieve generative adversarial network (GAN)-based multimodal knowledge representation dynamically. 
 
+## Framework
+
+![Design science canvas](https://github.com/dhchenx/mmkit-features/blob/main/doc/images/design-science-canvas.jpg)
+
 ## Modalities
 1. Text/Language modality
 2. Image modality
@@ -60,8 +64,5 @@ The project includes some source codes from various open-source contributors. He
 ## License
 Please consider cite our project if the project is used in your research. 
 
-## To do
+Chen, D. (2022). MMKit-Features: Multimodal Features Extraction Toolkit (Version 0.0.1) [Computer software]
 
-2. Multimodal knowledge base framework
-3. Graphic User Interface for the framework
-...
