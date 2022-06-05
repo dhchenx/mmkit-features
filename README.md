@@ -1,17 +1,24 @@
-# MMKit-Features: Multimodal Features Extraction Toolkit
+# MMKit-Features: Multimodal Feature Extraction Toolkit
 
-A light-weight Python library to extract, fuse and store multimodal features for deep learning.
+A light-weight Python library to utilize multimodal features for deep learning.
 
-## Objectives
-- To extract, store and fuse various features from multimodal datasets rapidly and efficiently;
+## Project Goal
+- To extract, store, and fuse various features from multimodal datasets rapidly and efficiently;
 - To provide a common multimodal information processing framework for multimodal features; 
-- To achieve generative adversarial network (GAN)-based multimodal knowledge representation dynamically. 
+- To achieve generative adversarial network-based multimodal knowledge representation dynamically. 
+
+## Installation
+
+```
+    pip install mmkit-features
+```
 
 ## Framework
 
 ![Design science canvas](https://dhchenx.github.io/projects/mmk-features/images/design-science-canvas.jpg)
 
 ## Modalities
+
 1. Text/Language modality
 2. Image modality
 3. Video modality
@@ -53,6 +60,7 @@ if __name__ == "__main__":
 Further instructions on the toolkit refers to [here](https://github.com/dhchenx/mmkit-features/tree/main/doc). 
 
 ## Credits
+
 The project includes some source codes from various open-source contributors. Here is a list of their contributions. 
 
 1. [A2Zadeh/CMU-MultimodalSDK](https://github.com/A2Zadeh/CMU-MultimodalSDK)
@@ -62,6 +70,9 @@ The project includes some source codes from various open-source contributors. He
 5. [v-iashin/Video Features](https://v-iashin.github.io/video_features/)
 
 ## License
+
+This project is provided by [Donghua Chen](https://github.com/dhchenx) with MIT license. 
+
 Please cite our project if the project is used in your research. 
 
 Chen, D. (2022). MMKit-Features: Multimodal Features Extraction Toolkit (Version 0.0.1) [Computer software]
