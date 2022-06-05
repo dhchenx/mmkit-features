@@ -73,6 +73,8 @@ The project includes some source codes from various open-source contributors. He
 
 This project is provided by [Donghua Chen](https://github.com/dhchenx) with MIT license. 
 
+## Citation
+
 Please cite our project if the project is used in your research. 
 
 Chen, D. (2022). MMKit-Features: Multimodal Features Extraction Toolkit (Version 0.0.1) [Computer software]
