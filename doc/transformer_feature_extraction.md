@@ -66,4 +66,6 @@ if __name__ == '__main__':
 
 ```
 
+![Swin Transformer Result](images/swin_transformer_result.jpg)
+
 More implementation of Transformer-based extractors are coming soon. 

@@ -8,21 +8,21 @@ import matplotlib.pyplot as plt
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 
-from config import get_config
-from models import build_model
-from utils import get_pretrained_model
+from mmkfeatures.transformer.image.config import get_config
+from mmkfeatures.transformer.image.build import build_model
+from mmkfeatures.transformer.image.utils import get_pretrained_model
 from tqdm import tqdm
 
 def parse_option():
     parser = argparse.ArgumentParser(
         'establish database script', add_help=False)
     parser.add_argument('--cfg', type=str,
-                        metavar="FILE", help='path to config file',default='configs/swin_tiny_patch4_window7_224.yaml' )
-    parser.add_argument('--data-path', type=str, help='path to dataset', default=r'D:\UIBE科研\国自科青年\多模态机器学习\projects\mmkit-features\examples\birds_features_lib\datasets\CUB_200_2011\images')
+                        metavar="FILE", help='path to config file',default='datasets/image1/swin_tiny_patch4_window7_224.yaml' )
+    parser.add_argument('--data-path', type=str, help='path to dataset', default=r'datasets/image1/cub_data/images')
     parser.add_argument('--batch-size', type=int, default=1,
                         help="batch size for single GPU")
     parser.add_argument(
-        '--resume', help='resume from checkpoint', default="checkpoints/swin_tiny_patch4_window7_224.pth")
+        '--resume', help='resume from checkpoint', default="datasets/image1/swin_tiny_patch4_window7_224.pth")
 
     # distributed training
     parser.add_argument("--local_rank", type=int,help='local rank for DistributedDataParallel',default=1)
@@ -90,7 +90,7 @@ def establish_feat_database(model, dataloader_, db_path, device):
 
 
 class _DATASET(Dataset):
-    def __init__(self, index_path='database/index2.txt', IMG_SIZE=224, transform=None):
+    def __init__(self, index_path='datasets/image1/index2.txt', IMG_SIZE=224, transform=None):
         super().__init__()
         self.IMG_SIZE = IMG_SIZE
         self.table = np.loadtxt(index_path, dtype=str)
@@ -113,8 +113,8 @@ def main():
 
     # traverse path and generate images path index file with txt format
     dataset_path, index_file_path = config.DATA.DATABASE_PATH, config.DATA.INDEX_PATH
-    dataset_path=r"database/cub_data/images"
-    index_file_path="database/index2.txt"
+    dataset_path=r"datasets/image1/cub_data/images"
+    index_file_path="datasets/image1/index2.txt"
     print(dataset_path,index_file_path)
     traverse_get_index_file(dataset_path, index_file_path)
 

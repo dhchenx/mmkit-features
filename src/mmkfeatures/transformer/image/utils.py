@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from tkinter import filedialog
 
-from models import build_model
+from mmkfeatures.transformer.image.build import build_model
 
 
 def test(func):

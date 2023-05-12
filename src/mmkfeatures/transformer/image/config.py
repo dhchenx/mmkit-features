@@ -22,10 +22,10 @@ _C.DATA = CN()
 # Batch size for a single GPU, could be overwritten by command line argument
 _C.DATA.BATCH_SIZE = 1
 # Path to dataset, could be overwritten by command line argument
-_C.DATA.DATA_PATH = r'D:\UIBE科研\国自科青年\多模态机器学习\projects\mmkit-features\examples\birds_features_lib\datasets\CUB_200_2011\images'
-_C.DATA.DATABASE_PATH = './database/DB.npz'
+_C.DATA.DATA_PATH = r'datasets/image1/cub_data/images'
+_C.DATA.DATABASE_PATH = 'datasets/image1/DB.npz'
 # Path to index table
-_C.DATA.INDEX_PATH = './database/index.txt'
+_C.DATA.INDEX_PATH = 'datasets/image1/index2.txt'
 # Input image size
 _C.DATA.IMG_SIZE = 224
 # Interpolation to resize image (random, bilinear, bicubic)

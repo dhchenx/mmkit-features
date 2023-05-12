@@ -11,21 +11,23 @@ from tqdm import tqdm
 
 class TransformerTextFeatureExtractor:
 
-    def __init__(self,data_path):
-        self.configuration = TransfoXLConfig().from_pretrained("transfo-xl-wt103")
-        self.tokenizer = TransfoXLTokenizer.from_pretrained('transfo-xl-wt103')
+    def __init__(self,data_path,model_or_path="transfo-xl-wt103",feature_data_path='feature_list.npy',max_num=-1):
+        self.configuration = TransfoXLConfig().from_pretrained(model_or_path)
+        self.tokenizer = TransfoXLTokenizer.from_pretrained(model_or_path)
         # Initializing a model from the configuration
-        self.model = TransfoXLModel.from_pretrained("transfo-xl-wt103", config=self.configuration)
+        self.model = TransfoXLModel.from_pretrained(model_or_path, config=self.configuration)
         self.data_path=data_path
         ## extract the features
-        dataset = pd.read_csv(self.data_path)[:100]
+        if max_num!=-1:
+            dataset = pd.read_csv(self.data_path)[:max_num]
+        else:
+            dataset = pd.read_csv(self.data_path)[:max_num]
         print(dataset.shape)
         self.pages = dataset['text'].values.tolist()
         # print("the dataset is:\n", self.pages)
+        self.feature_data_path=feature_data_path
 
     def create(self):
-
-
 
         saved_features = []
         for val in tqdm(self.pages):
@@ -36,12 +38,12 @@ class TransformerTextFeatureExtractor:
             extracted_features = torch.mean(last_hidden_states, 1)[0].detach().numpy() # now the dimension is (1, sequencelength, 1)
             saved_features.append(extracted_features)
 
-        np.save(f"{root_folder}/feature_list.npy",saved_features,allow_pickle=True)
+        np.save(self.feature_data_path,saved_features,allow_pickle=True)
 
     def load(self):
 
         ##
-        self.features_list = np.load(f"{root_folder}/feature_list.npy",allow_pickle=True)
+        self.features_list = np.load(self.feature_data_path,allow_pickle=True)
 
     def cal_sim(self,input_fe,seed_fe):
         return 1 - distance.cosine(np.array(input_fe), np.array(seed_fe))
@@ -65,26 +67,5 @@ class TransformerTextFeatureExtractor:
         print("similarity scores of all:\n",sim_socre)
         val = self.pages[idx]
         print("the highest similar data in the dataset:",val)
+        return val
 
-
-if __name__=="__main__":
-    root_folder = "data1"
-    input_text = "lung cancer"
-    start = time.time()
-    fe=TransformerTextFeatureExtractor(data_path=f'{root_folder}/{root_folder}.csv')
-
-    print("creating...")
-    # fe.create()
-    d1=time.time()-start
-    start=time.time()
-    print("loading...")
-    fe.load()
-    d2 = time.time() - start
-    start = time.time()
-    print("searching...")
-    fe.search(input_text=input_text)
-    d3 = time.time() - start
-    start = time.time()
-    print("d1=",d1)
-    print("d2=",d2)
-    print("d3=",d3)
