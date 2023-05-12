@@ -1,6 +1,6 @@
 ## Transformer-based Feature Extraction
 
-We also integrate the state-of-the-art Transformer-based methods to extract multimodal features based on a series of large-scale pretrained models. 
+We also integrate the state-of-the-art Transformer-based methods to extract features based on a series of large-scale pretrained models. 
 
 ### Examples
 
@@ -65,6 +65,8 @@ if __name__ == '__main__':
 
 
 ```
+
+![Swin Transformer Result](../../doc/images/swin_transformer_result.jpg)
 
 3. Transformer-based Audio Feature Extractor
 

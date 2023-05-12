@@ -67,8 +67,20 @@ if __name__ == '__main__':
 ```
 
 ![Swin Transformer Result](images/swin_transformer_result.jpg)
+3. Transformer-based Audio Feature Extractor
 
-3. Transformer-based Video Feature Extractor
+```python
+from mmkfeatures.transformer.audio.model import *
+
+if __name__=="__main__":
+    audio_path="taken_clip.wav"
+    audioFE=TransformerAudioFeatureExtractor()
+    logits=audioFE.extract_features(audio_file_path=audio_path)
+    transcription=audioFE.predict(logits)
+    print("Transcription: ",transcription)
+```
+
+4. Transformer-based Video Feature Extractor
 
 Step 1: Create video datasets suitable for training and testing
 ```python
