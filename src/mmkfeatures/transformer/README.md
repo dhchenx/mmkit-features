@@ -1,6 +1,6 @@
 ## Transformer-based Feature Extraction
 
-We also integrate the state-of-the-art Transformer-based methods to extract features based on a series of large-scale pretrained models. 
+We also integrate the state-of-the-art Transformer-based methods to extract multimodal features based on a series of large-scale pretrained models. 
 
 ### Examples
 
@@ -64,6 +64,29 @@ if __name__ == '__main__':
     ife.search(roi,show_fig=True)
 
 
+```
+3. Transformer-based Video Feature Extractor
+
+Step 1: Create video datasets suitable for training and testing
+```python
+from mmkfeatures.transformer.video.data_generator import *
+if __name__=="__main__":
+    vd=VideoDatasets(root_folder='ucf101_top5')
+    vd.load_data()
+    vd.generate()
+    vd.save_data()
+```
+
+Step 2: Training and testing Transform-based Video Feature Extractor
+```python
+from mmkfeatures.transformer.video.model import *
+if __name__=="__main__":
+    vfe = TransformerVideoFeatureExtractor(root_folder='ucf101_top5',num_epochs=10)
+    vfe.load_data()
+    vfe.train()
+    results=vfe.predict(test_video='ucf101_top5/test/v_CricketShot_g01_c01.avi')
+    for k in results:
+        print(f"{k}:{round(results[k],4)}")
 ```
 
 More implementation of Transformer-based extractors are coming soon. 
