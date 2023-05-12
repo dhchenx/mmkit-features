@@ -34,4 +34,4 @@ if __name__=="__main__":
 
 ```
 
-Most of the methods generate word vectors with fixed length to represent text for our analysis. We highly recommend to use GloVe embedding to generate word vectors. 
+Most of the methods generate word vectors with fixed length to represent text for our analysis. We highly recommend you to use GloVe embedding to generate word vectors. 

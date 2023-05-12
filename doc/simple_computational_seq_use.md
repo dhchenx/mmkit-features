@@ -2,7 +2,7 @@
 
 This base class is deprived of the open-source CMU-Multimodal-SDK project which allows us to store multimodal objects like audio and video files. The core features of the ```computational sequence``` in the SDK is to develop a simple way to store each chunk's features in an order in video/audio files. For example, we can divide a 1-minute video into 60 1-second clips which can be stored in a time order. Then each clip is represented by its extracted features. The computation sequence class considers all objects have a basic property which is time. 
 
-In our project, we extend the concept of computational sequence in many ways, specially providing a more common way to store, fuse and retrieve extracted features from all sources. In this section, we firstly describe the basic usage of the computational sequence in our project. 
+In our project, we extended the concept of computational sequence in many ways, specially providing a more common way to store, fuse and retrieve extracted features from all sources. In this section, we firstly describe the basic usage of the computational sequence in our project. 
 
 Here is a toy example to show the use of computational sequence. 
 
@@ -120,4 +120,6 @@ if __name__=="__main__":
 	mydataset.align("compseq_1")
 ```
 
-The above example is a simple toy one and not suitable for complicated multimodal features use. Therefore, based on the `computational sequence`, we developed a brand-new and complicated one named `computatoinal_sequencex` to facilitate a common frame of storing and manipulating multimodal features for high-level applications in many fields. We will discuss the new one in other section. 
+The above example is a simple toy one and not suitable for complicated multimodal features use. Therefore, based on the `computational sequence`, we developed a brand-new and complicated one named `computatoinal_sequencex` to facilitate a common frame of storing and manipulating multimodal features for high-level applications in many fields. 
+
+We will discuss the new one in other section. 

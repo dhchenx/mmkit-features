@@ -1,6 +1,6 @@
 ## Video Features Extraction
 
-Extracting video features from a video file like *.mp4 file is very complicated. There are many frames from the video which are considered as images. But at the same time, we have to consider the temporal information in the video. 
+Extracting video features from a video file like `*.mp4` file is very complicated. There are many frames from the video which are considered as images. But at the same time, we have to consider the temporal information in the video. 
 
 A simple example of extracting video features using the `mmkit-features` toolkit is below: 
 

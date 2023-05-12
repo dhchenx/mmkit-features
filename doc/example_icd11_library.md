@@ -1,6 +1,6 @@
 ## Establishing ICD-11 disease coding library
 
-The example demonstrates steps to create a multimodal feature library using the datasets from International Classification of Diseases, Eleventh Revision (ICD-11). The ICD-11 datasets contains massive text description of disease entities and their complicated relationships. It is also sutable for use to show the use of the `mmkit-features` toolkit. 
+This example demonstrates steps to create a multimodal feature library using the datasets from International Classification of Diseases, Eleventh Revision (ICD-11). The ICD-11 datasets contains massive text description of disease entities and their complicated relationships. It is also suitable for use to show the use of the `mmkit-features` toolkit. 
 
 ### Steps 
 
