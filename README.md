@@ -25,7 +25,7 @@ Figure 1: Multimodal Computational Sequence
 
 ![GAN-based Multimodal Concept Generation](doc/images/gan-based-cross-modal-generation.jpg)
 
-Figure 2: GAN-based Multimodal Concpet Generation
+Figure 2: GAN-based Multimodal Concept Generation
 
 ## Modalities
 
@@ -88,7 +88,7 @@ Here are some examples of using our work in real life with codes and documents.
 - [Basic Computational Sequence](doc/simple_computational_seq_use.md)
 - [Core use of MMFLib](doc/multimodal_features_library.md)
 
-### 3. Multimodal knowledge bases
+### 3. Multimodal Knowledge Bases
 
 - [Multimodal Birds Feature Library](doc/example_bird_library.md)
 - [Multimodal Disease Coding Feature Library](doc/example_icd11_library.md)
