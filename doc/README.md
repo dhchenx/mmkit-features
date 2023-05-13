@@ -24,7 +24,7 @@ Here are some examples of using our work in real life with codes and documents.
 ### 3. Multimodal Knowledge Bases
 
 - [Multimodal Birds Feature Library](example_bird_library.md)
-- [Multimodal Disease Coding Feature Library](doc/example_icd11_library.md)
+- [Multimodal Disease Coding Feature Library](example_icd11_library.md)
 - [Multimodal ROCO Feature Library](../examples/roco_lib/step1_create_lib_roco.py)
 
 ### 4. Multimodal Indexing and Querying
